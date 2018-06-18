@@ -1,0 +1,31 @@
+{
+    "name": "ToneAC",
+    "keywords": "ESP32, Learning Kit, ALKS, Robotarna, RobotikaBrno, RoboticsBrno",
+    "description": "Replacement to the standard tone library with many advantages",
+    "license": "",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/RoboticsBrno/ToneAC.git"
+    },
+    "authors": [
+        {
+            "name": "Tim Eckel",
+            "email": "teckel@leethost.com",
+            "url": ""
+        },
+        {
+            "name": "Kryštof Černý",
+            "email": "cleverline1mc@gmail.com",
+            "url": "http://www.robotikabrno.cz",
+            "maintainer": true
+        },
+        {
+            "name": "Jaroslav Paral",
+            "email": "paral@robotikabrno.cz",
+            "url": "http://www.robotikabrno.cz"
+        }
+    ],
+    "version": "0.0.1",
+    "frameworks": "arduino",
+    "platforms": "atmelavr"
+}
