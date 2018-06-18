@@ -10,7 +10,7 @@
 // Blog: http://forum.arduino.cc/index.php?topic=142097.0
 //
 // DISCLAIMER:
-// This software is furnished "as is", without technical support, and with no 
+// This software is furnished "as is", without technical support, and with no
 // warranty, express or implied, as to its usefulness for any purpose.
 //
 // PURPOSE:
@@ -20,7 +20,7 @@
 // stress on the speaker. Disadvantages are that it must use certain pins and
 // it uses two pins instead of one. But, if you're flexible with your pin
 // choices, this is a great upgrade. It also uses timer 1 instead of timer 2,
-// which may free up a conflict you have with the tone library. It exclusively 
+// which may free up a conflict you have with the tone library. It exclusively
 // uses port registers for the fastest and smallest code possible.
 //
 // USAGE:
@@ -80,39 +80,35 @@
 // ---------------------------------------------------------------------------
 
 #ifndef toneAC_h
-  #define toneAC_h
+#define toneAC_h
 
-  #if defined(ARDUINO) && ARDUINO >= 100
-    #include <Arduino.h>
-  #else
-    #include <WProgram.h>
-  #endif
+#include <Arduino.h>
 
-  #if defined (__AVR_ATmega32U4__) || defined(__AVR_ATmega640__) || defined(__AVR_ATmega1280__) || defined(__AVR_ATmega1281__) || defined(__AVR_ATmega2560__) || defined(__AVR_ATmega2561__) || defined(__AVR_AT90USB646__) || defined(__AVR_AT90USB1286__)
-    #define PWMT1AMASK DDB5
-    #define PWMT1BMASK DDB6
-    #define PWMT1DREG DDRB
-    #define PWMT1PORT PORTB
-  #elif defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega644__) || defined(__AVR_ATmega644P__)
-    #define PWMT1AMASK DDD4
-    #define PWMT1BMASK DDD5
-    #define PWMT1DREG DDRD
-    #define PWMT1PORT PORTD
-  #else
-    #define PWMT1AMASK DDB1
-    #define PWMT1BMASK DDB2
-    #define PWMT1DREG DDRB
-    #define PWMT1PORT PORTB
-  #endif
+#if defined(__AVR_ATmega32U4__) || defined(__AVR_ATmega640__) || defined(__AVR_ATmega1280__) || defined(__AVR_ATmega1281__) || defined(__AVR_ATmega2560__) || defined(__AVR_ATmega2561__) || defined(__AVR_AT90USB646__) || defined(__AVR_AT90USB1286__)
+#define PWMT1AMASK DDB5
+#define PWMT1BMASK DDB6
+#define PWMT1DREG DDRB
+#define PWMT1PORT PORTB
+#elif defined(__AVR_ATmega1284P__) || defined(__AVR_ATmega644__) || defined(__AVR_ATmega644P__)
+#define PWMT1AMASK DDD4
+#define PWMT1BMASK DDD5
+#define PWMT1DREG DDRD
+#define PWMT1PORT PORTD
+#else
+#define PWMT1AMASK DDB1
+#define PWMT1BMASK DDB2
+#define PWMT1DREG DDRB
+#define PWMT1PORT PORTB
+#endif
 
-  #if defined(__AVR_ATmega8__) || defined(__AVR_ATmega128__)
-    #define TIMSK1 TIMSK
-  #endif
+#if defined(__AVR_ATmega8__) || defined(__AVR_ATmega128__)
+#define TIMSK1 TIMSK
+#endif
 
-  #define NOTONEAC 0
-  #define PLAY_FOREVER 0
+#define NOTONEAC 0
+#define PLAY_FOREVER 0
 
-  void toneAC(unsigned long frequency = NOTONEAC, uint8_t volume = 10, unsigned long length = PLAY_FOREVER, uint8_t background = false);
-  void toneAC_playNote(unsigned long frequency, uint8_t volume);
-  void noToneAC();
+void toneAC(unsigned long frequency = NOTONEAC, uint8_t volume = 10, unsigned long length = PLAY_FOREVER, uint8_t background = false);
+void toneAC_playNote(unsigned long frequency, uint8_t volume);
+void noToneAC();
 #endif
