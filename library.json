@@ -1,8 +1,8 @@
 {
     "name": "ToneAC",
-    "keywords": "ESP32, Learning Kit, ALKS, Robotarna, RobotikaBrno, RoboticsBrno",
+    "keywords": "output, signal, tone, piezo, buzzer",
     "description": "Replacement to the standard tone library with many advantages",
-    "license": "",
+    "license": "GPL-3.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/RoboticsBrno/ToneAC.git"
@@ -11,7 +11,7 @@
         {
             "name": "Tim Eckel",
             "email": "teckel@leethost.com",
-            "url": ""
+            "url": "https://github.com/teckel12"
         },
         {
             "name": "Kryštof Černý",
