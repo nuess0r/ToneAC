@@ -25,7 +25,7 @@
             "url": "http://www.robotikabrno.cz"
         }
     ],
-    "version": "0.0.1",
+    "version": "0.1.0",
     "frameworks": "arduino",
     "platforms": "atmelavr"
 }
