@@ -8,7 +8,7 @@
 #include "toneAC.h"
 
 unsigned long _tAC_time;                                           // Used to track end note with timer when playing note in the background.
-uint8_t _tAC_volume[] = {200, 100, 67, 50, 40, 33, 29, 22, 11, 2}; // Duty for linear volume control.
+const PROGMEM uint8_t _tAC_volume[] = {200, 100, 67, 50, 40, 33, 29, 22, 11, 2}; // Duty for linear volume control.
 
 void toneAC(unsigned long frequency, uint8_t volume, unsigned long length, uint8_t background)
 {
@@ -53,7 +53,7 @@ void toneAC_playNote(unsigned long frequency, uint8_t volume)
   if (TCNT1 > top)
     TCNT1 = top;                                    // Counter over the top, put within range.
   TCCR1B = _BV(WGM13) | prescaler;                  // Set PWM, phase and frequency corrected (top=ICR1) and prescaler.
-  OCR1A = OCR1B = top / _tAC_volume[volume - 1];    // Calculate & set the duty cycle (volume).
+  OCR1A = OCR1B = top / pgm_read_byte_near(_tAC_volume[volume - 1]);    // Calculate & set the duty cycle (volume).
   TCCR1A = _BV(COM1A1) | _BV(COM1B1) | _BV(COM1B0); // Inverted/non-inverted mode (AC).
 }
 
